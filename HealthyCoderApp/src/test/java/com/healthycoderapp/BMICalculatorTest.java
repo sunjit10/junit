@@ -1,6 +1,8 @@
 package com.healthycoderapp;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.function.Executable;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,6 +12,16 @@ import java.util.ArrayList;
 // METHOD NAME:    should_<RETURNSTH>_When_<DOINGSTH>()
 // WITHIN METHOD:  given...when...then OR arrange...act...assert
 public class BMICalculatorTest {
+
+    @BeforeAll
+    static void beforeAll() {
+	System.out.println("Before All Unit Tests");
+    }
+
+    @AfterAll
+    static void afterAll() {
+	System.out.println("After All Unit Tests");
+    }
     
     @Test
     void should_ReturnTrue_When_DietRecommended() {
@@ -70,6 +82,7 @@ public class BMICalculatorTest {
 	);
     }
 
+    // Test for Null using assertNull
     @Test
     void should_ReturnNullWorstBMICoder_When_CoderListEmpty() {
 	// arrange
@@ -80,5 +93,23 @@ public class BMICalculatorTest {
 	
 	// assert
 	assertNull(coderWorstBMI);
+    }
+
+    // Test for arrays
+    @Test
+    void should_ReturnCorrectBMIScoreArray_When_CoderListNotEmpty() {
+	// arrange
+	List<Coder> coders = new ArrayList<>();
+	coders.add(new Coder(1.80, 60.0));
+	coders.add(new Coder(1.82, 98.0));
+	coders.add(new Coder(1.82, 64.7)); 
+
+	double[] expectedValues = {18.52, 29.59, 19.53};
+
+	// act
+	double bmiScores[] = BMICalculator.getBMIScores(coders);
+	
+	// assert
+	assertArrayEquals(expectedValues, bmiScores);
     }
 }
