@@ -10,7 +10,8 @@ import java.util.ArrayList;
 // METHOD NAME:    should_<RETURNSTH>_When_<DOINGSTH>()
 // WITHIN METHOD:  given...when...then OR arrange...act...assert
 public class BMICalculatorTest {
-    
+
+    // Check something is true - assertTrue(true)
     @Test
     void should_ReturnTrue_When_DietRecommended() {
 	// arrange
@@ -24,6 +25,7 @@ public class BMICalculatorTest {
 	assertTrue(recommended);
     }
     
+    // Check something is false - assertFalse(false)
     @Test
     void should_ReturnFalse_When_DietNotRecommended() {
 	// arrange
@@ -50,7 +52,8 @@ public class BMICalculatorTest {
 	// assert
 	assertThrows(ArithmeticException.class, executable);
     }
-
+    
+    // Assert mutiple values - assertAll(() -> assertEquals(test1), () -> assertEquals(test2));
     @Test
     void should_ReturnCoderWithWorstBMI_When_CoderListNotEmpty() {
 	// arrange
@@ -70,7 +73,7 @@ public class BMICalculatorTest {
 	);
     }
 
-    // Test for Null using assertNull
+    // Test for Null -  assertNull(SomeObjectThatIsNull)
     @Test
     void should_ReturnNullWorstBMICoder_When_CoderListEmpty() {
 	// arrange
@@ -82,8 +85,8 @@ public class BMICalculatorTest {
 	// assert
 	assertNull(coderWorstBMI);
     }
-
-    // Test for arrays
+    
+    // Test for arrays - assertArrayEquals(array1, array2);
     @Test
     void should_ReturnCorrectBMIScoreArray_When_CoderListNotEmpty() {
 	// arrange
@@ -91,7 +94,7 @@ public class BMICalculatorTest {
 	coders.add(new Coder(1.80, 60.0));
 	coders.add(new Coder(1.82, 98.0));
 	coders.add(new Coder(1.82, 64.7)); 
-
+	
 	double[] expectedValues = {18.52, 29.59, 19.53};
 
 	// act

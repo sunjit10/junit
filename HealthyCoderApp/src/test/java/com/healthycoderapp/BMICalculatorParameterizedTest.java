@@ -21,7 +21,7 @@ public class BMICalculatorParameterizedTest {
 	// assert
 	assertTrue(recommended);
     }
-
+    
     @ParameterizedTest
     @CsvSource(value = {"89.0, 1.72", "95.0, 1.75", "110.0, 1.78"})
     void should_ReturnTrue_When_DietRecommended(Double coderWeight, Double coderHeight) {
