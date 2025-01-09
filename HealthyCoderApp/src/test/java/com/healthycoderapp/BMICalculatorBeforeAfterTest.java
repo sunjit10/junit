@@ -5,6 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+   beforeAll 
+   afterAll
+ */
 public class BMICalculatorBeforeAfterTest {
     
     @BeforeAll
@@ -25,6 +29,7 @@ public class BMICalculatorBeforeAfterTest {
 	
 	// act
 	boolean recommended = BMICalculator.isDietRecommended(weight, height);
+	System.out.println("recommended: " + recommended);
 	
 	// assert
 	assertTrue(recommended);

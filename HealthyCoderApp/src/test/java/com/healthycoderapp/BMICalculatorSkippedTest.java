@@ -15,12 +15,14 @@ public class BMICalculatorSkippedTest {
 
 	// Note: It is assumeTrue, NOT assertTrue
 	assumeTrue(this.environment.equals("prod"));
+
 	// arrange
 	double weight = 89.0;
 	double height = 1.72;
 	
 	// act
 	boolean recommended = BMICalculator.isDietRecommended(weight, height);
+	System.out.println("BMICalculatorSkippedTest: recommended: " + recommended);
 	
 	// assert
 	assertTrue(recommended);
